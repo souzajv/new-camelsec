@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-verde: #4EFFEA;
+  --color-azul: #4EA4FF;
+  --color-roxo: #6C4EFF;
+  --color-branco: #FFFFFF;
+  --color-cinza: #978DA6;
+  --color-preto-background: #040018;
+  --color-preto-secundario: #181A2A;
+  --gradient-camelsec: linear-gradient(90deg, #4EFFEA 0%, #4EA4FF 50%, #6C4EFF 100%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.gradient-text {
+  background: var(--gradient-camelsec);
+  background-size: 400% 400%;
+  animation: gradient-move 6s ease-in-out infinite alternate;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation-direction: alternate;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  25% {
+    background-position: 33% 50%;
+  }
+
+  50% {
+    background-position: 66% 50%;
+  }
+
+  75% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
 }
