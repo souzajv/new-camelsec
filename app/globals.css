@@ -9,6 +9,7 @@
   --color-preto-background: #040018;
   --color-preto-secundario: #181A2A;
   --gradient-camelsec: linear-gradient(90deg, #4EFFEA 0%, #4EA4FF 50%, #6C4EFF 100%);
+  
 }
 
 .gradient-text {
@@ -20,6 +21,10 @@
   background-clip: text;
   color: transparent;
   animation-direction: alternate;
+}
+
+.bg-gradient-camelsec {
+  background: var(--gradient-camelsec);
 }
 
 @keyframes gradient-move {
@@ -59,3 +64,43 @@
     }
   }
 }
+
+/* Loader SVG */
+.loader {
+  width: 8em;
+  height: 8em;
+}
+
+/* Contorno neon e efeito de dissolução para o loader */
+.loader path {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 500;
+  animation: dashArray 3s ease-in-out infinite, dashOffset 3s linear infinite, neonPulse 3s ease-in-out infinite;
+}
+
+/* Animação do traçado */
+@keyframes dashArray {
+  0% {
+      stroke-dasharray: 0 1 499 0;
+  }
+
+  50% {
+      stroke-dasharray: 0 499 1 0;
+  }
+
+  100% {
+      stroke-dasharray: 499 1 0 0;
+  }
+}
+
+/* Animação do deslocamento do traçado */
+@keyframes dashOffset {
+  0% {
+      stroke-dashoffset: 1500;
+  }
+
+  100% {
+      stroke-dashoffset: 500;
+  }
+}
+

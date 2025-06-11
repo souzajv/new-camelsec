@@ -33,7 +33,7 @@ export const AuroraBackground = ({
                     "--verde": "#4EFFEA",
                     "--azul": "#4EA4FF",
                     "--roxo": "#6C4EFF",
-                    "--roxo-medio": "#5B6EFF", // tom intermediário entre azul e roxo
+                    "--roxo-medio": "#5B6EFF", 
                     "--black": "#000",
                     "--white": "#fff",
                     "--transparent": "transparent",
