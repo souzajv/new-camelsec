@@ -106,7 +106,6 @@ const FloatingDockDesktop = ({
     );
 };
 
-// Componente animado apenas para texto
 function TextDockItem({
     mouseX,
     title,
@@ -118,18 +117,14 @@ function TextDockItem({
 }) {
     let ref = useRef<HTMLDivElement>(null);
 
-    // Efeito dock animado (apenas altura)
     let distance = useTransform(mouseX, (val) => {
         let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
         return val - bounds.x - bounds.width / 2;
     });
 
-    // Remova a animação do width!
-    // let widthTransform = useTransform(distance, [-150, 0, 150], [150, 180, 150]);
     let heightTransform = useTransform(distance, [-150, 0, 150], [30, 50, 30]);
     let fontSizeTransform = useTransform(distance, [-150, 0, 150], [18, 28, 18]);
 
-    // let width = useSpring(widthTransform, { ... });
     let height = useSpring(heightTransform, {
         mass: 0.1,
         stiffness: 150,
@@ -147,12 +142,11 @@ function TextDockItem({
         <a href={href}>
             <motion.div
                 ref={ref}
-                // Remova o width do style!
                 style={{ height }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 className={cn(
-                    "relative flex items-center justify-around rounded-md hover:bg-preto-secundario duration-100 px-12 py-2",
+                    "relative flex items-center justify-around rounded-md hover:bg-preto-secundario/75 duration-100 px-12 py-2",
                     hovered ? "shadow-lg" : ""
                 )}
             >

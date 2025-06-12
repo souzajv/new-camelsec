@@ -36,7 +36,7 @@ export default function HeroSection() {
 
     return (
         <AuroraBackground className="h-screen w-full">
-            <div className="text-branco text-2xl fixed top-10 pl-[5%] w-full flex items-center">
+            <div className="text-branco text-2xl fixed top-12 pl-[5%] w-full flex items-center">
                 <Image
                     src="images/favicon.svg"
                     alt="CamelSec"
